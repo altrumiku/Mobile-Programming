@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Mob Prog Exam', style: TextStyle(color: Colors.white)),
+          backgroundColor: Colors.red,
+          leading: Icon(Icons.home, color: Colors.white),
+        ),
+        body: Menu(),
+      ),
+    );
+  }
+}
+
+class Menu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<String> contacts = ['Aston', 'Ryza', 'Jay'];
+
+    return ListView.builder(
+      itemCount: contacts.length,
+      itemBuilder: (context, index) {
+        String contact = contacts[index];
+        int letterCount = contact.length;
+
+        return ListTile(
+          leading: Icon(Icons.person),
+          title: Text(contact),
+          subtitle: Text('$letterCount letters'),
+        );
+      },
+    );
+  }
+}
